@@ -1,3 +1,7 @@
+# prefix with SUPERSET_LOAD_EXAMPLES=yes to load examples:
+#  docker-compose run --rm superset ./docker-init.sh
+# you can run this command everytime you need to start superset now:
+#  docker-compose up
 #
 # Licensed to the Apache Software Foundation (ASF) under one or more
 # contributor license agreements.  See the NOTICE file distributed with
@@ -57,6 +61,7 @@ services:
     depends_on:
       - postgres
       - redis
+    user: root:root      
     volumes:
       # this is needed to communicate with the postgres and redis services
       - ./superset_config.py:/home/superset/superset/superset_config.py
