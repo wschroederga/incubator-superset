@@ -46,6 +46,7 @@ SQLALCHEMY_DATABASE_URI = 'postgresql://%s:%s@%s:%s/%s' % (POSTGRES_USER,
 REDIS_HOST = get_env_variable('REDIS_HOST')
 REDIS_PORT = get_env_variable('REDIS_PORT')
 
+ENABLE_CORS = True
 
 class CeleryConfig(object):
     BROKER_URL = 'redis://%s:%s/0' % (REDIS_HOST, REDIS_PORT)
