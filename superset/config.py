@@ -408,7 +408,7 @@ CELERY_CONFIG = None
 
 # Additional static HTTP headers to be served by your Superset server. Note
 # Flask-Talisman aplies the relevant security HTTP headers.
-HTTP_HEADERS = {}
+HTTP_HEADERS = {'X-Frame-Options': 'allow-from https://ams.grupoassa.com/'}
 
 # The db id here results in selecting this one as a default in SQL Lab
 DEFAULT_DB_ID = None
