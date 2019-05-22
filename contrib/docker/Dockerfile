@@ -53,7 +53,7 @@ RUN pip install --upgrade setuptools pip \
 COPY --chown=superset:superset superset superset
 
 ENV PATH=/home/superset/superset/bin:$PATH \
-    PYTHONPATH=/home/superset/superset/:$PYTHONPATH
+    PYTHONPATH=/home/superset/superset/:$PYTHONPATH \
     SUPERSET_CONFIG_PATH=/home/superset/superset/
 
 RUN cd superset/assets \
