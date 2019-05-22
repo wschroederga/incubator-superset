@@ -240,7 +240,7 @@ CACHE_CONFIG = {'CACHE_TYPE': 'null'}
 TABLE_NAMES_CACHE_CONFIG = {'CACHE_TYPE': 'null'}
 
 # CORS Options
-ENABLE_CORS = False
+ENABLE_CORS = True
 CORS_OPTIONS = {}
 
 # Chrome allows up to 6 open connections per domain at a time. When there are more
@@ -408,7 +408,8 @@ CELERY_CONFIG = None
 
 # Additional static HTTP headers to be served by your Superset server. Note
 # Flask-Talisman aplies the relevant security HTTP headers.
-HTTP_HEADERS = {'X-Frame-Options': 'allow-from https://ams.grupoassa.com/'}
+#HTTP_HEADERS = {'X-Frame-Options': 'allow-from https://ams.grupoassa.com/'}
+HTTP_HEADERS = {}
 
 # The db id here results in selecting this one as a default in SQL Lab
 DEFAULT_DB_ID = None
