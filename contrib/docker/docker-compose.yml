@@ -32,7 +32,7 @@ services:
     image: postgres:10
     restart: unless-stopped
     environment:
-      POSTGRES_DB: superset2
+      POSTGRES_DB: superset
       POSTGRES_PASSWORD: superset
       POSTGRES_USER: superset
     ports:
@@ -46,7 +46,7 @@ services:
       dockerfile: contrib/docker/Dockerfile
     restart: unless-stopped
     environment:
-      POSTGRES_DB: superset2
+      POSTGRES_DB: superset
       POSTGRES_USER: superset
       POSTGRES_PASSWORD: superset
       POSTGRES_HOST: postgres
