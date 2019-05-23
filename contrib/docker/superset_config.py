@@ -50,6 +50,7 @@ PUBLIC_ROLE_LIKE_GAMMA = True
 ENABLE_CORS = True
 ENABLE_PROXY_FIX = True
 HTTP_HEADERS = {'X-Frame-Options': 'ALLOWALL'}
+SUPERSET_WEBSERVER_TIMEOUT = 90
 
 class CeleryConfig(object):
     BROKER_URL = 'redis://%s:%s/0' % (REDIS_HOST, REDIS_PORT)
