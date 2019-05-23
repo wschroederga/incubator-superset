@@ -28,7 +28,7 @@ image:
 
 service:
   type: NodePort
-  port: 8088
+  port: 8089
 
 ingress:
   enabled: false

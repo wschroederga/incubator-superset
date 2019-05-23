@@ -65,6 +65,6 @@ COPY contrib/docker/docker-init.sh .
 COPY contrib/docker/docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
-HEALTHCHECK CMD ["curl", "-f", "http://localhost:8088/health"]
+HEALTHCHECK CMD ["curl", "-f", "http://localhost:8089/health"]
 
-EXPOSE 8088
+EXPOSE 8089

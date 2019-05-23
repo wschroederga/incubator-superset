@@ -275,7 +275,7 @@ of the parameters you can copy / paste in that configuration module: ::
     #---------------------------------------------------------
     ROW_LIMIT = 5000
 
-    SUPERSET_WEBSERVER_PORT = 8088
+    SUPERSET_WEBSERVER_PORT = 8089
     #---------------------------------------------------------
 
     #---------------------------------------------------------

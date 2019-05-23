@@ -323,7 +323,7 @@ superset load_examples
 # Note that your page may not have css at this point.
 # See instructions below how to build the front-end assets.
 cd superset
-FLASK_ENV=development flask run -p 8088 --with-threads --reload --debugger
+FLASK_ENV=development flask run -p 8089 --with-threads --reload --debugger
 ```
 
 #### Logging to the browser console
@@ -340,7 +340,7 @@ def FLASK_APP_MUTATOR(app):
 Then make sure you run your WSGI server using the right worker type:
 
 ```bash
-FLASK_ENV=development gunicorn superset:app -k "geventwebsocket.gunicorn.workers.GeventWebSocketWorker" -b 127.0.0.1:8088 --reload
+FLASK_ENV=development gunicorn superset:app -k "geventwebsocket.gunicorn.workers.GeventWebSocketWorker" -b 127.0.0.1:8089 --reload
 ```
 
 You can log anything to the browser console, including objects:

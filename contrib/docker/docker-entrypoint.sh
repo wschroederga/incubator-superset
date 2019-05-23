@@ -25,14 +25,14 @@ elif [ "$SUPERSET_ENV" = "development" ]; then
     (cd superset/assets/ && npm ci)
     (cd superset/assets/ && npm run dev) &
     su - superset &
-    FLASK_ENV=development FLASK_APP=superset:app flask run -p 8088 --with-threads --reload --debugger --host=0.0.0.0
+    FLASK_ENV=development FLASK_APP=superset:app flask run -p 8089 --with-threads --reload --debugger --host=0.0.0.0
 elif [ "$SUPERSET_ENV" = "production" ]; then
     celery worker --app=superset.sql_lab:celery_app --pool=gevent -Ofair &
     gunicorn \
       -w 1 \
       -k gevent \
       --timeout 120 \
-      -b  0.0.0.0:8088 \
+      -b  0.0.0.0:8089 \
       --limit-request-line 0 \
       --limit-request-field_size 0 \
       superset:app        
