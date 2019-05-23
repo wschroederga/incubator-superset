@@ -54,8 +54,8 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: 6379
       # If using production, comment development volume below
-      SUPERSET_ENV: production
-      #SUPERSET_ENV: development
+      #SUPERSET_ENV: production
+      SUPERSET_ENV: development
     ports:
       - 8089:8089
     depends_on:
