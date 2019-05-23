@@ -32,7 +32,7 @@ services:
     image: postgres:10
     restart: unless-stopped
     environment:
-      POSTGRES_DB: superset
+      POSTGRES_DB: superset2
       POSTGRES_PASSWORD: superset
       POSTGRES_USER: superset
     ports:
