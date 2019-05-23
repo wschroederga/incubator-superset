@@ -35,7 +35,6 @@ elif [ "$SUPERSET_ENV" = "production" ]; then
       -b  0.0.0.0:8088 \
       --limit-request-line 0 \
       --limit-request-field_size 0 \
-      --statsd-host localhost:8188 \
       superset:app        
 else
     superset --help
