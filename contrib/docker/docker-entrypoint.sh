@@ -28,12 +28,15 @@ elif [ "$SUPERSET_ENV" = "development" ]; then
     FLASK_ENV=development FLASK_APP=superset:app flask run -p 8088 --with-threads --reload --debugger --host=0.0.0.0
 elif [ "$SUPERSET_ENV" = "production" ]; then
     celery worker --app=superset.sql_lab:celery_app --pool=gevent -Ofair &
-    gunicorn --bind  0.0.0.0:8088 \
-        --workers 4 \
-        --timeout 90 \
-        --limit-request-line 0 \
-        --limit-request-field_size 0 \
-        superset:app
+    gunicorn \
+      -w 1 \
+      -k gevent \
+      --timeout 120 \
+      -b  0.0.0.0:8088 \
+      --limit-request-line 0 \
+      --limit-request-field_size 0 \
+      --statsd-host localhost:8188 \
+      superset:app        
 else
     superset --help
 fi
