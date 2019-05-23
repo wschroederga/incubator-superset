@@ -34,7 +34,6 @@ elif [ "$SUPERSET_ENV" = "production" ]; then
         --limit-request-line 0 \
         --limit-request-field_size 0 \
         superset:app
-        #--workers $((2 * $(getconf _NPROCESSORS_ONLN) + 1)) \        
 else
     superset --help
 fi
