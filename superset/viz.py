@@ -932,52 +932,44 @@ class BoxPlotViz(NVD3Viz):
 
 
 class BubbleViz(NVD3Viz):
-
+    
     """Based on the NVD3 bubble chart"""
 
-    viz_type = 'bubble'
-    verbose_name = _('Bubble Chart')
+    viz_type = "bubble"
+    verbose_name = _("Bubble Chart")
     is_timeseries = False
 
     def query_obj(self):
         form_data = self.form_data
         d = super().query_obj()
-        d['groupby'] = [
-            form_data.get('entity'),
-        ]
-        if form_data.get('series'):
-            d['groupby'].append(form_data.get('series'))
-        self.x_metric = form_data.get('x')
-        self.y_metric = form_data.get('y')
-        self.z_metric = form_data.get('size')
-        self.entity = form_data.get('entity')
-        self.series = form_data.get('series') or self.entity
-        d['row_limit'] = form_data.get('limit')
+        d["groupby"] = [form_data.get("entity")]
+        if form_data.get("series"):
+            d["groupby"].append(form_data.get("series"))
+        self.x_metric = form_data.get("x")
+        self.y_metric = form_data.get("y")
+        self.z_metric = form_data.get("size")
+        self.entity = form_data.get("entity")
+        self.series = form_data.get("series") or self.entity
+        d["row_limit"] = form_data.get("limit")
 
-        d['metrics'] = list(set([
-            self.z_metric,
-            self.x_metric,
-            self.y_metric,
-        ]))
-        if not all(d['metrics'] + [self.entity]):
-            raise Exception(_('Pick a metric for x, y and size'))
+        d["metrics"] = list(set([self.z_metric, self.x_metric, self.y_metric]))
+        if not all(d["metrics"] + [self.entity]):
+            raise Exception(_("Pick a metric for x, y and size"))
         return d
 
     def get_data(self, df):
-        df['x'] = df[[utils.get_metric_name(self.x_metric)]]
-        df['y'] = df[[utils.get_metric_name(self.y_metric)]]
-        df['size'] = df[[utils.get_metric_name(self.z_metric)]]
-        df['shape'] = 'circle'
-        df['group'] = df[[self.series]]
+        df["x"] = df[[utils.get_metric_name(self.x_metric)]]
+        df["y"] = df[[utils.get_metric_name(self.y_metric)]]
+        df["size"] = df[[utils.get_metric_name(self.z_metric)]]
+        df["shape"] = "circle"
+        df["group"] = df[[self.series]]
 
         series = defaultdict(list)
-        for row in df.to_dict(orient='records'):
-            series[row['group']].append(row)
+        for row in df.to_dict(orient="records"):
+            series[row["group"]].append(row)
         chart_data = []
         for k, v in series.items():
-            chart_data.append({
-                'key': k,
-                'values': v})
+            chart_data.append({"key": k, "values": v})
         return chart_data
 
 
